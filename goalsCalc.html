@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>MONEYTALK$ || GOALS CALCULATOR</title>
+        <link type="text/css" rel="stylesheet" href="stylesheet.css"/>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.js"></script>
+	    <link href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.css" type="text/css" rel="stylesheet" />
+    </head>
+    
+    <body>
+        <div class="navigation">
+            <nav>
+                <ul>
+                    <li class="home"><a class="links" href="homepage.php">MONEYTALK$</a></li>
+                    <li><a class="links" href="login-page.php">Log Out</a></li>
+					<li><a class="links" href="habitTracker.php">Habit Tracker</a></li>
+                    <li><a class="links" href="investing.html">Investing</a></li>
+                    <li><a class="links" href="goalsCalc.html">Goals Calc</a></li>
+                </ul>
+            </nav>
+        </div><!--NAVIGATION BAR-->
+
+        <div class="chart-space"  style="width:500px; width:500px;padding: 50px;">
+            
+            <canvas id="myChart" width="400" height="400"></canvas>
+            
+            <script>
+                function createChart(fetch_labels, fetch_data){
+                    var ctx = document.getElementById('myChart').getContext('2d');
+                    //var test = 12;
+                    var myChart = new Chart(ctx, {
+                        type: 'bar',
+                        data: {
+                            labels: fetch_labels,
+                            datasets: [{
+                            data: fetch_data,
+                            backgroundColor: [
+                                'rgba(255, 99, 132, 0.2)',
+                                'rgba(54, 162, 235, 0.2)',
+                                'rgba(255, 206, 86, 0.2)',
+                                'rgba(75, 192, 192, 0.2)',
+                                'rgba(153, 102, 255, 0.2)',
+                                'rgba(255, 159, 64, 0.2)'
+                            ],
+                            borderColor: [
+                                'rgba(255, 99, 132, 1)',
+                                'rgba(54, 162, 235, 1)',
+                                'rgba(255, 206, 86, 1)',
+                                'rgba(75, 192, 192, 1)',
+                                'rgba(153, 102, 255, 1)',
+                                'rgba(255, 159, 64, 1)'
+                            ],
+                            borderWidth: 1
+                            }]
+                        },
+                        options: {
+                            maintainableAspectRatio: false,
+                            scales: {
+                                yAxes: [{
+                                    ticks: {
+                                        beginAtZero: true
+                                    }
+                                }]
+                            }
+                        }
+                    });
+                }
+            </script><!--SCRIPT TO CREATE CHART-->
+
+        </div><!--CHART SPACE-->
+
+        <div class="calc col-right">
+            <div class="form">
+                <div>
+                    <label class = "heading">SAVINGS GOAL:</label>
+                    <input id="savings_goal" class="input_box" type = "number" name = "savings_goal" size ="20" maxlength="10" required = "required" placeholder="$2,500" />
+                    <br />
+                    <label class = "heading">AMOUNT OF WEEKS/MONTHS:</label>
+                    <input id="amount_of_time" class="input_box" type="number" name = "amount_of_time"/>
+                    <br />
+                    <label><input type = "radio" name = "weekly_or_monthly" value = "weekly"/> Weekly</label>
+                    <label><input type = "radio" name = "weekly_or_monthly" value = "monthly" checked = "checked"/> Monthly</label>
+                    <br />
+                    <button onclick="showResults();">Calculate</button>
+                </div>
+            </div>
+        </div><!--FORM SPACE-->
+        <script>
+
+        /*
+        FUNCTION TO GET USER OPTION
+        */
+        function showResults(){
+            // GET USER CHOICE OF WEEKLY OR MONTHLY SAVINGS
+            // NEED A TEST CASE TO CHECK IF INPUT BOXES ARE EMPTY
+            var goal_input = document.getElementById("savings_goal");
+            var time_input = document.getElementById("amount_of_time");
+            if (goal_input.value === ""){
+                //console.log("Field is empty");
+                alert("Fields cannot be empty");
+                return false;
+            }
+            else{
+                //console.log(parseInt(goal_input.value) + parseInt(time_input.value));
+                //createChart();
+                //need to calculate data.
+                var radios = document.getElementsByName("weekly_or_monthly");
+                //console.log(radios.length);
+                var val;
+                for (var i=0; i<radios.length; i++){
+                    if (radios[i].checked){
+                        val = radios[i].value;
+                        break;
+                    }
+                }
+                
+                //console.log(val);
+                if (val === "weekly"){
+                    var get_labels = []; //need to send labels to chart
+                    var get_data = []; //need to send data to chart
+                    for(var i = 1; i <= parseInt(time_input.value); i++){
+                        get_labels.push("Week " + i);
+                    }
+                    //console.log(labels);
+                    // weekly_savings = goal_input / time_input
+                    var weekly_savings = parseInt(goal_input.value) / parseInt(time_input.value);
+                    //console.log(weekly_savings);
+                    for(var i = 1; i <= parseInt(time_input.value); i++){
+                        get_data.push((weekly_savings * i).toFixed(2));
+                    }
+                    //console.log(data);
+                    createChart(get_labels, get_data);
+                }
+
+                else{
+                    var get_labels = []; //need to send labels to chart
+                    var get_data = []; //need to send data to chart
+                    for(var i = 1; i <= parseInt(time_input.value); i++){
+                        get_labels.push("Month " + i);
+                    }
+                    //console.log(labels);
+                    // weekly_savings = goal_input / time_input
+                    var weekly_savings = parseInt(goal_input.value) / parseInt(time_input.value);
+                    //console.log(weekly_savings);
+                    for(var i = 1; i <= parseInt(time_input.value); i++){
+                        get_data.push((weekly_savings * i).toFixed(2));
+                    }
+                    //console.log(data);
+                    createChart(get_labels, get_data);
+                }
+
+            }
+        }
+        </script>
+		<footer>
+			<p>Copyright 2019 Eduardo, Esau, Lilybeth Website</p>
+			</footer>
+    </body>
+
+</html>

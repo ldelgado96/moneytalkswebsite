@@ -1,0 +1,140 @@
+
+/******************************
+TOP DIVISION
+*************************/
+
+div#informationContainer{
+	width:100%;
+	display:table;
+	clear: both;
+	margin-top:0;
+	padding:0px;
+}
+
+div#tableRow{
+	padding:0px;
+	margin-top:0;
+	display:table-row;
+	clear:both;
+}
+
+#mainInformation{
+	width:50%;
+	display:table-cell;
+	background-color:#617459;
+	font-size:30px;
+	letter-spacing:2pt;
+	color:white;
+	text-align:center;
+	margin:0px;
+	padding:200px;
+	vertical-align=top;
+}
+
+#mainInformation2{
+	width:50%;
+	display:table-cell;
+	background-color:#F1F7ED;
+	text-align:center;
+	font-size:30px;
+	letter-spacing:2pt;
+	margin:0px;
+	padding:200px;
+	vertical-align=top;
+	
+}
+
+/****************
+the three image splitter
+
+******************/
+
+div.picRow p{
+	float: right;
+	width: 30%;
+	padding:0;
+	margin: 0.5em;
+	!border: 2px solid black;
+	
+}
+
+/*********************
+
+the information content section
+******************/
+#resourcesContainer{
+	clear:both;
+}
+#resourcesContainer h1{
+	clear:both;
+	padding:60pt;
+	color:#617459;
+	font-weight:none;
+	background-color:#F1F7ED;
+	font-size:40pt;
+	text-align:center;
+	letter-spacing:4pt;
+	
+}
+.bookTitle{
+	float:left;
+	font-size:20pt;
+	padding:5px;
+	letter-spacing:2pt;
+	margin:10pt;
+}
+.bookTitle a{
+	color:#617459;
+}
+#resourcesContainer p{
+	width:80%;
+	float:right;
+	font-size:15pt;
+	color:black;
+	margin:10px;
+	padding:10px;
+}
+/***************************************
+
+Best Aplication
+
+
+****************************************/
+.bestAppsHeader{
+	clear:both;
+	padding:60pt;
+	color:#617459;
+	font-weight:none;
+	background-color:#F1F7ED;
+	font-size:40pt;
+	text-align:center;
+	letter-spacing:4pt;
+	
+	
+}
+.bestApps p{
+	
+float: right;
+	width: 30%;
+	padding:0;
+	margin: 0.5em;
+	margin-bottom:50pt;
+}
+	
+
+/*************************
+footer****************************
+****************************/
+footer{
+	clear:both;
+	background-color:#617459;
+	margin-top:100px;
+}
+
+footer p{
+	padding:2em;
+	color:white;
+	text-align:center;
+}
+
+

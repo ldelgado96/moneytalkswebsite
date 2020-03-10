@@ -1,0 +1,66 @@
+
+.motivational{
+	font-size:34pt;
+	text-align:center;
+	padding: 4em;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+
+.Calendar{
+	height:300pt;
+	/*background-image: url("savingsBackground.jpg");
+	background-position: center; /* Center the image */
+	/*background-repeat: no-repeat;
+	background-size: cover;*/
+	background-color:#617459;
+	display:block;
+	
+	
+}
+
+form{
+	border:1px solid black;
+	height:300pt;
+	width:50%;
+	background-color:#F1F7ED;
+	text-align:center;
+	margin-left:auto;
+	margin-right:auto;
+	
+}
+
+form h1{
+	font-size:34pt;
+}
+
+form label{
+	font-size:25pt;
+	display: block;
+    text-align: center;
+    line-height: 150%;
+
+}
+
+.habit{
+
+	width:100%;
+}
+.outputHeader{
+	color:black;
+	padding:15px;
+	background-color:#F1F7ED;
+	text-align: center;
+	font-size: 25pt;
+	letter-spacing: 3pt;
+}
+
+.output{
+	padding:10px;
+	color:white;
+	text-align: center;
+	font-size: 20pt;
+
+
+}
